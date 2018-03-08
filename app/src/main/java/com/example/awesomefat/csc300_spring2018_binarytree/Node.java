@@ -29,5 +29,47 @@ public class Node
         return rightChild;
     }
 
+    public Node setLeftChild() { return leftChild;}
+
+    public Node setRightChild() { return rightChild; }
+
+    public void move(int newPay)
+    {
+
+        if(newPay <= this.payload)
+        {
+
+            System.out.println("left");
+            if(this.leftChild == null)
+            {
+                this.setLeftChild(new Node(newPay));
+                System.out.println("set");
+
+            }
+            else
+            {
+
+
+                this.leftChild.move(newPay);
+            }
+        }
+        else
+        {
+
+            System.out.println("right");
+            if(this.rightChild == null)
+            {
+                this.setRightChild(new Node(newPay));
+                System.out.println("set");
+
+            }
+            else
+            {
+
+                this.rightChild.move(newPay);
+            }
+        }
+    }
+
 
 }
